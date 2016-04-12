@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "game.c"
+#include "game.h"
 
 void print_usage() {
     printf("Usage: fourinarow [-p num] [-s num x num] \n");

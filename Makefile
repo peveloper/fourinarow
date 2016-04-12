@@ -1,7 +1,6 @@
 all: main.c
-		cc -c main.c
-		cc main.o -o fourinarow
-
+		cc -c main.c game.c
+		cc -o fourinarow main.o game.o
 clean: 
 		$(RM) fourinarow
-		$(RM) main.o
+		$(RM) main.o game.o

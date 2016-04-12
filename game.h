@@ -47,6 +47,17 @@ struct state {
 */
 void init_board(struct state * s);
 
+
+/* Check if a columns is full.
+ * Returns 0 is false, 1 otherwise.
+*/
+int is_column_full(int column, const struct state * s);
+
+
+/* Insert a piece in the board */
+void insert(const struct move * m, const struct state * s);
+
+
 /* Display the state of a game by drawing the grid on the terminal
  * using ASCII characters.
 */
@@ -71,6 +82,25 @@ int game_update(struct state * s, const struct move * m);
  * the move is not valid in s0.
 */
 int game_state_transition(const struct state * s0, const struct move * m, struct state * s1);
+
+
+/* Check if a coordinate is inside the board.
+ * It gets call to check if there's a configuration of 4 consecutive
+ * pieces in the board.
+*/
+int is_valid_coordinate(int w, int h);
+
+
+/* Check simply the 1st row of the board, if is completely full
+ * returns 1, otherwise 0.
+*/
+int check_draw(struct state * s);
+
+
+/* Check if there are 4 consecutive pieces in the board.
+ * Returns 1 if there's a winner, 0 otherwise.
+*/
+int check_win(struct state * s);
 
 
 /* Evaluates the given game state. The return value must indicate
